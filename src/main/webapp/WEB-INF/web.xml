@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>CatalogueTPJEE</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  	
+	<servlet>
+		<servlet-name>AfficherProduitServlet</servlet-name><!-- Pour mettre le nom de notre servlet -->
+		<servlet-class>fr.produitvde.servlet.AfficherProduitServlet</servlet-class><!--Le nom du package du servlet -->
+	</servlet>
+
+	<servlet-mapping> <!-- permet de mapper: faire correspondre le servlet à un URL -->
+		<servlet-name>AfficherProduitServlet</servlet-name>
+		<url-pattern>/afficher</url-pattern>
+	</servlet-mapping>
+  
+	<servlet>
+		<servlet-name>AjouterProduitServlet</servlet-name><!-- Pour mettre le nom de notre servlet -->
+		<servlet-class>fr.produitvde.servlet.AjouterProduitServlet</servlet-class><!--Le nom du package du servlet -->
+	</servlet>
+
+	<servlet-mapping> <!-- permet de mapper: faire correspondre le servlet à un URL -->
+		<servlet-name>AjouterProduitServlet</servlet-name>
+		<url-pattern>/ajouter</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ModifierProduitServlet</servlet-name><!-- Pour mettre le nom de notre servlet -->
+		<servlet-class>fr.produitvde.servlet.ModifierProduitServlet</servlet-class><!--Le nom du package du servlet -->
+	</servlet>
+
+	<servlet-mapping> <!-- permet de mapper: faire correspondre le servlet à un URL -->
+		<servlet-name>ModifierProduitServlet</servlet-name>
+		<url-pattern>/modifier</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RechercherProduitServlet</servlet-name><!-- Pour mettre le nom de notre servlet -->
+		<servlet-class>fr.produitvde.servlet.RechercherProduitServlet</servlet-class><!--Le nom du package du servlet -->
+	</servlet>
+
+	<servlet-mapping> <!-- permet de mapper: faire correspondre le servlet à un URL -->
+		<servlet-name>RechercherProduitServlet</servlet-name>
+		<url-pattern>/rechercher</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SupprimerProduitServlet</servlet-name><!-- Pour mettre le nom de notre servlet -->
+		<servlet-class>fr.produitvde.servlet.SupprimerProduitServlet</servlet-class><!--Le nom du package du servlet -->
+	</servlet>
+
+	<servlet-mapping> <!-- permet de mapper: faire correspondre le servlet à un URL -->
+		<servlet-name>SupprimerProduitServlet</servlet-name>
+		<url-pattern>/supprimer</url-pattern>
+	</servlet-mapping>
+			  
+</web-app>
