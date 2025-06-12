@@ -36,7 +36,7 @@ public class SupprimerProduitServlet extends HttpServlet{
 			if (supp) aidi="succes";
 			else aidi="echec";
 		} else System.out.println("petit souci dans le jsp au niveau du bouton valider supp");
-		req.setAttribute("valid", aidi);
+		req.setAttribute("reponz", aidi);
 		/*
         String etape = req.getParameter("etape");
         String valeurStr = req.getParameter("valeur");

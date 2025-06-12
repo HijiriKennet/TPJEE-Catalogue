@@ -123,11 +123,11 @@ public class Catalogue extends Produit{
    	 return null;
 	}
     
-    public boolean chercher(String trouve) {
+    public static Produit chercher(String trouve) {
 	   	 if (connex!=null) {
 		         try {
 		             stmt = connex.createStatement();
-		             String selectSQL = "SELECT id,nom, description, PU, qteStock FROM Produits WHERE nom='" + trouve + "'";
+		             String selectSQL = "SELECT id,nom, description, PU, qteStock FROM Produits WHERE nom='" + trouve + "' OR id='" + trouve + "'";
 		             resu = stmt.executeQuery(selectSQL);
 		             if (resu!=null) {
 		            	 //Ne pas utiliser resu.getXXX en dehors de while resu.next()	 
@@ -137,12 +137,13 @@ public class Catalogue extends Produit{
 			                    String description = resu.getString("description");
 			                    double PU = resu.getDouble("PU");
 			                    int qteStock = resu.getInt("qteStock");
+			                    Produit produitTrouve = new Produit(id,nom,description, PU, qteStock);
 			                    System.out.println("N°" + id + " | " + nom + " : " + description + " | " + PU + " € | " + qteStock);
-			                    return true;
+			                    return produitTrouve;
 		            	 }
 		             }
 		             else System.err.println("Produit introuvable...");	 
-		             return false;
+		             return null;
 		         } 
 		         catch (SQLException e) {
 		                System.err.println("Erreur SQL :");
@@ -158,8 +159,9 @@ public class Catalogue extends Produit{
 		                }
 		         }
 		 } else System.err.println("Échec de connexion à la base de données."); 
-	   	 return false;
+	   	 return null;
 	}
+    
     public static List<Produit> rechercher(String trouve) {
 	   	 if (connex!=null) {
 		         try {

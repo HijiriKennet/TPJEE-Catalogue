@@ -178,7 +178,7 @@
 							 </button>
 						</form>
 						<button type="button" class="btn btn-lg btn-secondary" data-bs-dismiss="modal">Annuler</button>
-						<p><% out.write((String)request.getAttribute("valid")); %></p>
+						<p><% if (request.getAttribute("reponz")!=null) out.write((String)request.getAttribute("reponz")); %></p>
 					</div>
 				</div>
 		 

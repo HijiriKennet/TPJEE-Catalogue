@@ -16,9 +16,7 @@ public class RechercherProduitServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("RechercherProduitServlet - doGet");
-		
 		req.getRequestDispatcher("/WEB-INF/rechercher.jsp").forward(req, resp);
-		
 	}
 	
 	@Override
