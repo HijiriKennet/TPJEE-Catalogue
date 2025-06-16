@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.produitvde.models.Produit;
 import fr.produitvde.services.Catalogue;
+import fr.produitvde.services.RechercheParID;
 
 /**
  * Servlet implementation class RechercherIDProduitServlet
@@ -21,7 +22,7 @@ public class RechercherIDProduitServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("RechercherIDProduitServlet - doGet");
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("/WEB-INF/rechercherparid.jsp").forward(request, response);
 	}
 
 	/**
@@ -30,23 +31,25 @@ public class RechercherIDProduitServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("RechercherIDProduitServlet - doPost");
 				
-		String idStr = request.getParameter("produitAlterID");
+		String idStr = request.getParameter("produitSID");
 		String valid = request.getParameter("valid");
 		//abeg faut que tu relises parce que t'as mélangé 2 fonctions pour avoir ceci
 		
 		int id = Integer.parseInt( idStr );
 		System.out.println("id : "+ idStr + " valid = " + valid);
-		if ("rechercher".equals(valid)) {
+		if ("rechercherID".equals(valid)) {
 			Produit produitTrouve = Catalogue.chercher(idStr);
 			String afficherProduit = "affichez";
 			request.setAttribute("affichez", afficherProduit);
 			request.setAttribute("produitTrouve", produitTrouve);
+			RechercheParID.getInstance().setID(idStr);
 			System.out.println("attributs récupérés car valid= rechercher");
 		} else {
 			request.setAttribute("produitTrouve", null);
 			System.out.println("Aucun produit. Null a été pris en attribut.");
 		}
-		request.getRequestDispatcher("/WEB-INF/rechercher.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/rechercherparid.jsp").forward(request, response);
+
 	}
 
 }

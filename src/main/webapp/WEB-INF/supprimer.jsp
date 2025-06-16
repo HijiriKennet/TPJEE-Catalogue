@@ -160,6 +160,7 @@
 		<div class="modal modal-sheet p-4 py-md-5" data-bs-backdrop="false" tabindex="-1" role="dialog" id="modalSheet" aria-hidden="true">
 			 attention y'avait les  lignes du dessus qu'étaient commentées
 			 -->
+		
 				<div class="modal-content rounded-4 ">
 					<div class="modal-header border-bottom-0">
 						<h1 class="modal-title fs-5">Supprimer</h1>

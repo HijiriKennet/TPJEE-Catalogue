@@ -178,40 +178,40 @@
 				<div class="modal-body p-5 pt-0">
 					<form class="form-inline my-2 my-lg-0" action="modifier" method="post">
 						<div class="form-floating mb-3">
-							<input type="text" id="produitID" class="form-control" name="produitAlterID" placeholder="id à supprimer" required autofocus>
+							<input type="text" id="produitID" class="form-control" name="produitAlterID" placeholder="id à modifier" required autofocus>
 							<input type="hidden" id="valid" class="form-control" name="valid" value="rechercher" style="display: none;">
 							<button class="w-100 mb-2 btn btn-lg rounded-3 btn-secondary" type="submit">Valider ID</button>
 						</div>
 					</form>
-						<% 
+						<%--
 							if ( "affichez".equals( request.getAttribute("affichez") ) ) {
 								
 								if (request.getAttribute("produitTrouve")!=null) {
-								Produit produitFound = (Produit) request.getAttribute("produitTrouve");	
-								System.out.println("Nom " + produitFound.getNom());
-						%>
+								Produit produitTrouve = (Produit) request.getAttribute("produitTrouve");	
+								System.out.println("Nom " + produitTrouve.getNom());
+						--%>
 					<form class="form-inline my-2 my-lg-0" action="modifier" method="post">
 						<div class="form-floating mb-3">
-							<input type="hidden" id="produitID" class="form-control" name="produitAlterID" value="${produitFound.id}">
-							<input type="text" id="produitNom" class="form-control" name="produitNom" value="${produitFound.nom}" required autofocus> 
+							<input type="hidden" id="produitID" class="form-control" name="produitAlterID" value="${produitTrouve.getID()}">
+							<input type="text" id="produitNom" class="form-control" name="produitNom" value="${produitTrouve.getNom()}"> 
 							<label for="produitNom" class="sr-only">Nom</label> 
 						</div>
 						<div class="form-floating mb-3">
-							<input type="text" class="form-control rounded-3" id="produitDesc" name="produitDesc" value="${produitFound.description}"> 
+							<input type="text" class="form-control rounded-3" id="produitDesc" name="produitDesc" value="${produitTrouve.getDescription()}"> 
 							<label for="produitDesc">Description</label>
 						</div>
 						<div class="form-floating mb-3"> 
-							<input type="text" id="produitPU" class="form-control" name="produitPU" value="${produitFound.PU}" required autofocus>
+							<input type="text" id="produitPU" class="form-control" name="produitPU" value="${produitTrouve.getPU()}" >
 							<label for="produitPU">Prix Unitaire</label>
 						</div>
 						<div class="form-floating mb-3">
-							<input type="number" id="produitQteStock" class="form-control" name="produitQteStock" value="${produitFound.qteStock}" required autofocus>
+							<input type="number" id="produitQteStock" class="form-control" name="produitQteStock" value="${produitTrouve.getQteStock()}" >
 							<label for="produitQteStock">Quantité en Stock</label>
 						</div>
 						<input type="hidden" id="valid" class="form-control" name="valid" value="modifier" style="display: none;">
 						<button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Modifier</button>
 					</form>
-					<% } } %>
+					<%-- } } --%>
 				</div>
 			</div>
 		</div>

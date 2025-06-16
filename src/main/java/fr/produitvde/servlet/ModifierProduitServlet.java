@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.produitvde.models.Produit;
 import fr.produitvde.services.Catalogue;
+import fr.produitvde.services.RechercheParID;
 
 public class ModifierProduitServlet extends HttpServlet{
 	@Override
@@ -24,8 +25,8 @@ public class ModifierProduitServlet extends HttpServlet{
 		System.out.println("ModifierProduitServlet - doPost");
 		String idStr = req.getParameter("produitAlterID");
 		String valid = req.getParameter("valid");
-		int id = Integer.parseInt( idStr );
 		System.out.println("id : "+ idStr + " valid = " + valid);
+		int id = Integer.parseInt( idStr );
 		if ("rechercher".equals(valid)) {
 			Produit produitTrouve = Catalogue.chercher(idStr);
 			String afficherProduit = "affichez";

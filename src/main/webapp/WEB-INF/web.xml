@@ -49,6 +49,16 @@
 		<servlet-name>RechercherProduitServlet</servlet-name>
 		<url-pattern>/rechercher</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RechercherIDProduitServlet</servlet-name><!-- Pour mettre le nom de notre servlet -->
+		<servlet-class>fr.produitvde.servlet.RechercherIDProduitServlet</servlet-class><!--Le nom du package du servlet -->
+	</servlet>
+
+	<servlet-mapping> <!-- permet de mapper: faire correspondre le servlet à un URL -->
+		<servlet-name>RechercherIDProduitServlet</servlet-name>
+		<url-pattern>/rechercherparid</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>SupprimerProduitServlet</servlet-name><!-- Pour mettre le nom de notre servlet -->
